@@ -22,6 +22,18 @@ border-radius:20px;
 
 </style>
 
+@keyframes cair {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
 </head>
 
 <body>
@@ -66,6 +78,25 @@ Amo muito voce Lais
 com carinho Marcelo ❤️
 </p>
 
+<script>
+function criarCoracao() {
+  const coracao = document.createElement("div");
+  coracao.innerHTML = "❤️";
+  coracao.style.position = "fixed";
+  coracao.style.top = "-10px";
+  coracao.style.left = Math.random() * window.innerWidth + "px";
+  coracao.style.fontSize = "24px";
+  coracao.style.animation = "cair 5s linear";
+  document.body.appendChild(coracao);
+
+  setTimeout(() => {
+    coracao.remove();
+  }, 5000);
+}
+
+setInterval(criarCoracao, 300);
+</script>
+  
 </body>
 
 </html>
