@@ -24,7 +24,7 @@ border-radius:20px;
 
 @keyframes cair {
   0% {
-    transform: translateY(0);
+    transform: translateY(-10px);
     opacity: 1;
   }
 
@@ -34,6 +34,12 @@ border-radius:20px;
   }
 }
 
+.coracao {
+  position: fixed;
+  top: -10px;
+  font-size: 25px;
+  animation: cair 5s linear;
+}
 </head>
 
 <body>
@@ -80,18 +86,19 @@ com carinho Marcelo ❤️
 
 <script>
 function criarCoracao() {
+
   const coracao = document.createElement("div");
+  coracao.classList.add("coracao");
   coracao.innerHTML = "❤️";
-  coracao.style.position = "fixed";
-  coracao.style.top = "-10px";
+
   coracao.style.left = Math.random() * window.innerWidth + "px";
-  coracao.style.fontSize = "24px";
-  coracao.style.animation = "cair 5s linear";
+
   document.body.appendChild(coracao);
 
   setTimeout(() => {
     coracao.remove();
   }, 5000);
+
 }
 
 setInterval(criarCoracao, 300);
